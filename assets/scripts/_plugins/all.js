@@ -1027,7 +1027,7 @@ function init_map(){
                 marker: {
                     address: gmMarkerAddress,
                     options: {
-                        icon: "images/map-marker.png"
+                        icon: "wp-content/themes/hamrestolen/dist/images/map-marker.png"
                     }
                 },
                 map: {
