@@ -3,7 +3,7 @@
     
     
     <!-- Slide Item -->
-    <section class="home-section bg-scroll aaaaabg-dark-alfa-30" data-background="<?php echo get_template_directory_uri(); ?>/assets/images/exterior1.jpg">
+    <section class="home-section bg-scroll bg-dark-alfa-30" data-background="<?php echo get_template_directory_uri(); ?>/assets/images/exterior1.jpg">
         <div class="js-height-full container">
 
         <!-- Hero Content -->
@@ -33,7 +33,7 @@
     <!-- End Slide Item -->
     
     <!-- Slide Item -->
-    <section class="home-section bg-scroll bg-dark-alfa-3fullwidth-slider-fade0" data-background="<?php echo get_template_directory_uri(); ?>/assets/images/exterior2.jpg">
+    <section class="home-section bg-scroll bg-dark-alfa-30" data-background="<?php echo get_template_directory_uri(); ?>/assets/images/exterior2.jpg">
         <div class="js-height-full container">
             
             <!-- Hero Content -->

@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="footer-text">
+    <div class="footer-text mt-20">
       <div class="footer-copy"> &copy; Hamrestølen 2015. </div>
       <div class="footer-made"> Alle rettigheter forbeholdt. Design og programmering: <a href="http://brickvisual.com/">Brick Visual</a> </div>
     </div>

@@ -22,7 +22,9 @@
         "scripts/_plugins/jquery.simple-text-rotator.js",
         "scripts/_plugins/all.js",
         "scripts/_plugins/contact-form.js",
-        "scripts/_plugins/jquery.ajaxchimp.min.js",  
+        "scripts/_plugins/jquery.ajaxchimp.min.js",
+        "scripts/_plugins/raphael.js", 
+        "scripts/visual-chooser.js",  
         "scripts/main.js"
       ],
       "main": true
@@ -43,6 +45,6 @@
     }
   },
   "config": {
-    "devUrl": "http://hamrestolen.szabogabi.com"
+    "devUrl": "http://ceto.no-ip.org/hamrestolen"
   }
 }
