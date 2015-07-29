@@ -30,15 +30,15 @@
     <div class="row">            
       <div class="col-md-10 col-md-offset-1">
           <h1 class="hs-line-8 font-alt mb-0 align-center">Finn din Bolig</h1>
-          <div class="hs-line-4 font-alt align-center">Dra musepekeren over bygget for å velge leilighet</div>
+          <div class="hs-line-4 font-alt align-center black">Dra musepekeren over bygget for å velge leilighet</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<section class="home__choserblock align-center" id="finndinbolig">
-  <img src="<?php echo get_template_directory_uri(); ?>/assets/images/building-sample.jpg" alt="">
+<section class="page-section home__choserblock align-center fixed-height-small" id="finndinbolig" data-background="<?php echo get_template_directory_uri(); ?>/assets/images/exterior1.jpg">
+  <div class="js-height-parent"></div>
 </section>
 
 

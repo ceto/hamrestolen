@@ -11,10 +11,11 @@ foreach ( (array) $sections as $key => $entry ) { ?>
       <div class="section-text">   
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
-
+            <?php if ($entry['title']!='') : ?>
             <h2 class="hs-line-11 font-alt align-center mt-20">
               <?php echo $entry['title']; ?>
             </h2>
+            <?php endif; ?>
       
             <?php if ($entry['lead']!='') : ?>
               <div class="lead">

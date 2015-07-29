@@ -1,8 +1,92 @@
+/*****************
+ Color Definitions
+ *****************/
+
+/* White */
+
+$white: #fff; 
+$prilight: #ECEDE8; //main text color 
+$seclight: #EFF0EA;
+
+/* Black */
+$black: #000;
+$pridark:#353331; // main background and dark text
+$secdark:#332E1E;
+
+
+/* Orange */
+$highlight:#F37C4B; // buttons
+
+
+
+/*********************
+ Breakpoints and width
+ *********************/
+
+$s0: 320px;
+$s1: 480px;
+$s2: 768px;
+$s3: 1024px;
+$s4: 1280px;
+$s5: 1600px;
+
+$narrowmax: 890px;
+$normalmax: 1140px;
+$widemax: 1360px;
+
+
+/****************
+  Fonts
+**************/
+$scifly: 'SciFly-Sans', sans-serif;
+$sans-serif: 'DINNextLTPro', sans-serif;  
+
 $malac: #FFFCFB;
+$s5:1600px;
+
+@mixin bp($brkp) {
+  @media only screen and (min-width: $brkp) { @content; }
+}
+
+// Clearfix
+// Source: http://nicolasgallagher.com/micro-clearfix-hack/
+// --------------------------------------------------
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+@mixin hide-text() {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+
+
 .bg-malac {
   background-color: $malac;
 }
 .larger {
 	font-size:1.5em;
 	text-align:center;	
+}
+
+
+.work-navigation {
+  a[rel="prev"] {
+    text-align: left; 
+  }
+  a[rel="next"] {
+    text-align: right;  
+  }
 }

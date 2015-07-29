@@ -1,4 +1,5 @@
 <?php while (have_posts()) : the_post(); ?>
+<?php $buildlist = wp_get_post_terms($post->ID, 'building'); ?>
 <?php get_template_part('templates/apartment', 'header'); ?>
 <section class="page-section">
   <div class="container relative">
@@ -16,10 +17,11 @@
         </div>
         <div class="col-md-3 col-md-offset-1">  
           <div class="single--apartment__adatok">
-
+            <?php $buildlist = wp_get_post_terms($post->ID, 'building'); ?>
             <div class="work-detail mt-50">
                 <h1 class="font-alt hs-line-8 mt-0 mb-20">Leilighets nr. <?php the_title(); ?></h1>
                 <div class="work-full-detail">
+                    <p><strong>Bygg</strong><?php echo $buildlist[0]->name; ?></p>
                     <p><strong>Rom</strong><?php echo get_post_meta( $post->ID, '_meta_rom', true ); ?>-roms</p>
                     <p><strong>Etg</strong><?php echo get_post_meta( $post->ID, '_meta_floor', true ); ?></p>
                     <p><strong>BRA</strong><?php echo get_post_meta( $post->ID, '_meta_bra', true ); ?> m<sup>2</sup></p>
@@ -60,9 +62,9 @@
 <!-- End Divider -->
 
 <div class="work-navigation clearfix">
-    <a href="#" class="work-prev"><span><i class="fa fa-chevron-left"></i>&nbsp;Previous</span></a>
-    <a href="#" class="work-all"><span><i class="fa fa-times"></i>&nbsp;Show All</span></a>
-    <a href="#" class="work-next"><span>Next&nbsp;<i class="fa fa-chevron-right"></i></span></a>
+    <?php previous_post_link('%link','<span><i class="fa fa-chevron-left"></i>&nbsp;%title</span>'); ?>
+    <a href="<?= esc_url(home_url('/')); ?>#finndinbolig" class="work-all"><span><i class="fa fa-times"></i>&nbsp;Finn din bolig</span></a>
+    <?php next_post_link('%link','<span>%title&nbsp;<i class="fa fa-chevron-right"></i></span>'); ?>
 </div>
 
 <!-- Divider -->
@@ -72,4 +74,4 @@
 <?php endwhile; ?>
 
 
-<?php get_template_part('templates/contact','form'); ?>
+<?php //get_template_part('templates/contact','form'); ?>

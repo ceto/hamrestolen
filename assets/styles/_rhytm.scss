@@ -3490,6 +3490,16 @@ a.logo:hover{
 	letter-spacing: 1px;
 	color: #151515; 
 }
+
+.work-navigation {
+	a[rel="prev"] {
+		text-align: left;	
+	}
+	a[next="nect"] {
+		text-align: right;	
+	}
+}
+
 .work-prev{
 	text-align: left;
 }
