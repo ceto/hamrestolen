@@ -115,9 +115,11 @@ if (is_admin()){
     'use_with_theme' => '/wp-content/themes/hamrestolen/lib/TMC' //change path if used with theme set to true, false for a plugin or anything else for a custom path(default false).
   );
   $building_meta =  new Tax_Meta_Class($csonfig);
-  
-  $building_meta->addImage($tprefix.'view1', array('name'=> 'View I.'));
-  $building_meta->addImage($tprefix.'view2', array('name'=> 'View II.'));
+
+  $building_meta->addTextarea($tprefix.'floorsvg', array('name'=> 'Floor SVG Data'));
+
+  $building_meta->addImage($tprefix.'image', array('name'=> 'Image'));
+
   $building_meta->Finish();
 }
 

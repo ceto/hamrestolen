@@ -33,32 +33,12 @@
 	}
 
 
-
-	.btn{
-		font-size: 1em;
-		right:1em;
-		bottom:1em;
-		position: absolute;
-		z-index:3;
-		@include bp($s2) {
-			right:2em;
-			bottom: 2em;
-		}
-		@include bp($s3) {
-
-		}
-		@include bp($s4) {
-			font-size: 1.25em;
-		}
-	}
-
-}
-
-.chooser__head {
-	text-align: center;
 }
 
 
+.tax-building .thechooser {
+  margin-top: 4em;
+}
 
 /****************** Data Table Styles **************/
 .datatable {

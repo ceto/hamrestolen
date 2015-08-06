@@ -16,9 +16,9 @@ use Roots\Sage\Wrapper;
     <![endif]-->
 
     <!-- Page Loader -->        
-    <div class="page-loader">
+<!--     <div class="page-loader">
       <div class="loader">Loading...</div>
-    </div>
+    </div> -->
     <!-- End Page Loader -->
 
 

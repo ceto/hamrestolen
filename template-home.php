@@ -37,8 +37,39 @@
   </div>
 </section>
 
-<section class="page-section home__choserblock align-center fixed-height-small" id="finndinbolig" data-background="<?php echo get_template_directory_uri(); ?>/assets/images/exterior1.jpg">
-  <div class="js-height-parent"></div>
+<section class="home__choserblock" id="finndinbolig">
+  <div class="thechooser">
+    <div id="visualchooser" class="visualchooser visualchooser-starter" data-width="1547" data-height="1076">
+      <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser.jpg" alt="">
+    </div>
+
+    <?php 
+      $floors_args = array(
+        'hide_empty' => true,
+        'exclude' => array(3,4,5),  
+      );
+      $the_floors = get_terms('building', $floors_args );
+    ?>
+    <div id="detailswrapper" class="container detailswrapper">
+      <div class="row">
+        <div class="datatable datatable--floors">
+            <?php foreach ($the_floors as $floor) { ?>
+              <p class="datarow">
+                <a id="ap-<?= get_the_ID();  ?>" class="datarow--link" href="<?= get_term_link( $floor, 'building'); ?>" title="<?= $floor->name ?>" 
+                  data-name="<?=$floor->name ?>"
+                  data-svgdata="<?= get_tax_meta($floor,'_meta_floorsvg') ?>"
+                  data-url="<?= get_term_link( $floor, 'building'); ?>"
+                >
+                  <span class="datarow--cell"><?= $floor->name ?></span>
+                </a>
+              </p> 
+              
+            <?php } ?>
+          </div>
+        </div>
+    </div>
+  </div>
+
 </section>
 
 
