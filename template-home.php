@@ -39,13 +39,13 @@
 
 <section class="home__choserblock" id="finndinbolig">
   <div class="thechooser">
-    <div id="visualchooser" class="visualchooser visualchooser-starter" data-width="1547" data-height="1076">
-      <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser.jpg" alt="">
+    <div id="visualchooser" class="visualchooser visualchooser-starter" data-width="1921" data-height="1401">
+      <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser_update-01.jpg" alt="">
     </div>
 
     <?php 
       $floors_args = array(
-        'hide_empty' => true,
+        'hide_empty' => false,
         'exclude' => array(3,4,5),  
       );
       $the_floors = get_terms('building', $floors_args );
