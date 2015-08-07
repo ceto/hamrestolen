@@ -39,7 +39,8 @@ $widemax: 1360px;
   Fonts
 **************/
 $scifly: 'SciFly-Sans', sans-serif;
-$sans-serif: 'DINNextLTPro', sans-serif;  
+$sans-serif: 'DINNextLTPro', sans-serif;
+$dosis: Dosis, arial, sans-serif;  
 
 $malac: #FFFCFB;
 $s5:1600px;
@@ -89,4 +90,20 @@ $s5:1600px;
   a[rel="next"] {
     text-align: right;  
   }
+}
+
+.work-full-detail p {
+  a {
+    color:inherit;
+    &:hover, &:focus {
+      color:#555;
+    }
+  }
+}
+
+
+
+
+.single--apartment__schema {
+  margin-top: 2em;
 }

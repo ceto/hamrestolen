@@ -1,6 +1,5 @@
 .thechooser{
 	margin:0 auto;
-	max-width: $s5;
 }
 
 .visualchooser {
@@ -138,12 +137,15 @@ a.datarow--link {
   max-width: $s0;
   min-width: 10em;
   padding: .875em 1.25em;
-  color: #fff;
+  color: #777;
+  font-family: $dosis;
+  font-weight: 300;
   text-align: center;
   text-decoration: none;
-  background-color: $highlight;
+  background-color: #fff;
   border-radius: 0;
   position: relative;
+  text-transform: uppercase;
 }
 
 // Arrows
@@ -160,51 +162,51 @@ a.datarow--link {
     left: 50%;
     margin-left: -20px;
     border-width: 20px 20px 0;
-    border-top-color: $highlight;
+    border-top-color: #fff;
   }
   &.top-left .tooltip-arrow {
     bottom: 0;
     left: 20px;
     border-width: 20px 20px 0;
-    border-top-color: $highlight;
+    border-top-color: #fff;
   }
   &.top-right .tooltip-arrow {
     bottom: 0;
     right: 20px;
     border-width: 20px 20px 0;
-    border-top-color: $highlight;
+    border-top-color: #fff;
   }
   &.right .tooltip-arrow {
     top: 50%;
     left: 0;
     margin-top: -20px;
     border-width: 20px 20px 20px 0;
-    border-right-color: $highlight;
+    border-right-color: #fff;
   }
   &.left .tooltip-arrow {
     top: 50%;
     right: 0;
     margin-top: -20px;
     border-width: 20px 0 20px 20px;
-    border-left-color: $highlight;
+    border-left-color: #fff;
   }
   &.bottom .tooltip-arrow {
     top: 0;
     left: 50%;
     margin-left: -20px;
     border-width: 0 20px 20px;
-    border-bottom-color: $highlight;
+    border-bottom-color: #fff;
   }
   &.bottom-left .tooltip-arrow {
     top: 0;
     left: 20px;
     border-width: 0 20px 20px;
-    border-bottom-color: $highlight;
+    border-bottom-color: #fff;
   }
   &.bottom-right .tooltip-arrow {
     top: 0;
     right: 20px;
     border-width: 0 20px 20px;
-    border-bottom-color: $highlight;
+    border-bottom-color: #fff;
   }
 }

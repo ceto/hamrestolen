@@ -1,10 +1,39 @@
+
+<?php 
+  $types = get_the_terms( $post->ID, 'apartment-type' );
+  foreach ($types as $key => $value) { $type = $value; }
+  $the_sameaps = new WP_Query(array(
+      'post_type'   => array('apartment'),
+      'ignore_sticky_posts' => true,
+      'posts_per_page'         => -1,
+      'orderby' => 'title',
+      'order' => 'ASC',
+      'tax_query' => array(
+        array(
+          'taxonomy' => 'apartment-type',
+          'field'    => 'id',
+          'terms'    => array( $type->term_id ),
+        ),
+      )
+    )
+  );
+
+  $a_rom=get_tax_meta($type,'_tmeta_rom');
+  $a_bra=get_tax_meta($type,'_tmeta_bra');
+  $a_prom=get_tax_meta($type,'_tmeta_prom');
+  $a_balkong=get_tax_meta($type,'_tmeta_balkong');
+  $a_markterasse=get_tax_meta($type,'_tmeta_markterasse');
+  $a_view=get_tax_meta($type,'_tmeta_view');
+  $a_schema=get_tax_meta($type,'_tmeta_schema');
+?>
+
 <?php
   global $gview;
 
-  $ap['rom'] = get_post_meta( $post->ID, '_meta_rom', true ).'-roms';
+  $ap['rom'] = $a_rom.'-roms';
   $ap['floor'] = get_post_meta( $post->ID, '_meta_floor', true );
   $ap['bra'] = get_post_meta( $post->ID, '_meta_bra', true ).' m<sup>2</sup>';
-  $ap['prom'] = get_post_meta( $post->ID, '_meta_prom', true ).' m<sup>2</sup>';
+  $ap['prom'] = $a_prom.' m<sup>2</sup>';
   $ap['bod'] = get_post_meta( $post->ID, '_meta_bod', true ).' m<sup>2</sup>';
   $ap['pris'] = number_format(get_post_meta( $post->ID, '_meta_pris', true ), 0, ',', ' ').',-';
   $ap['state'] = get_post_meta( $post->ID, '_meta_state', true );

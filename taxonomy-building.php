@@ -45,9 +45,9 @@
 
 <div class="thechooser container">
 
-  <div id="visualchooser" class="visualchooser visualchooser--1" data-width="<?= $imcifull[1]; ?>" data-height="<?= $imcifull[2]; ?>">
+<!--   <div id="visualchooser" class="visualchooser visualchooser--1" data-width="<?= $imcifull[1]; ?>" data-height="<?= $imcifull[2]; ?>">
       <img src="<?= $imcifull[0]; ?>" alt="Fin din bolig">
-  </div>
+  </div> -->
 
 
   <div id="detailswrapper" class="row">

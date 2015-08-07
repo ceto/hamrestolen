@@ -33,7 +33,7 @@ function redraw_canvas() {
     items[index].attr(
       {
        
-        fill: (menuitem.attr('data-state')==='fri')?'#F37C4B':(menuitem.attr('data-state')==='solgt')?'#EA4933':'#EBC40C',
+        fill: (menuitem.attr('data-state')==='fri')?'#ffffff':(menuitem.attr('data-state')==='solgt')?'#777777':'#555555',
         opacity: (menuitem.attr('data-state')!=='fri')?0.5:0,
         stroke: '#000',
         'stroke-width': '0',
@@ -100,28 +100,34 @@ function redraw_canvas() {
       var thedata=$('#'+$(this).attr('id').slice(1));
 
       var name = thedata.attr('data-name');
-      var rom = thedata.attr('data-rom');
-      var floor = thedata.attr('data-floor');
-      var bra = thedata.attr('data-bra');
-      var prom = thedata.attr('data-prom');
-      var bod = thedata.attr('data-bod');
-      var pris = thedata.attr('data-pris');
-      var state = thedata.attr('data-state');
-      var url = thedata.attr('data-url');
+      var noflat = thedata.attr('data-noflat');
+      var noflatfree = thedata.attr('data-noflatfree');
+
+      // var rom = thedata.attr('data-rom');
+      // var floor = thedata.attr('data-floor');
+      // var bra = thedata.attr('data-bra');
+      // var prom = thedata.attr('data-prom');
+      // var bod = thedata.attr('data-bod');
+      // var pris = thedata.attr('data-pris');
+      // var state = thedata.attr('data-state');
+      // var url = thedata.attr('data-url');
       
-      $tiptext='<p class="tooltip__item"><span>Leilnr</span>'+name+'</p>';
-      $tiptext+='<p class="tooltip__item"><span>Rom</span>'+rom+'</p>';
-      $tiptext+='<p class="tooltip__item"><span>Etg</span>'+floor+'</p>';
-      $tiptext+='<p class="tooltip__item"><span>Bra</span>'+bra+'</p>';
-      $tiptext+='<p class="tooltip__item"><span>P-rom</span>'+prom+'</p>';
+      $tiptext='<p class="tooltip__item"><span>Bygg</span>'+name+'</p>';
+      $tiptext+='<p class="tooltip__item"><span>Leiglighets</span>'+noflat+'</p>';
+      $tiptext+='<p class="tooltip__item"><span>Fri</span>'+noflatfree+'</p>';
+
+      // $tiptext+='<p class="tooltip__item"><span>Rom</span>'+rom+'</p>';
+      // $tiptext+='<p class="tooltip__item"><span>Etg</span>'+floor+'</p>';
+      // $tiptext+='<p class="tooltip__item"><span>Bra</span>'+bra+'</p>';
+      // $tiptext+='<p class="tooltip__item"><span>P-rom</span>'+prom+'</p>';
       
 
-      if (state==='fri') {
-        $tiptext+='<p class="tooltip__item"><span>Pris</span>'+pris+'</p>';
-      }
-      if(state!=='fri') {
-        $tiptext+='<p class="tooltip__item"><span>Status</span>'+state+'</p>';
-      }
+      // if (state==='fri') {
+      //   $tiptext+='<p class="tooltip__item"><span>Pris</span>'+pris+'</p>';
+      // }
+      // if(state!=='fri') {
+      //   $tiptext+='<p class="tooltip__item"><span>Status</span>'+state+'</p>';
+      // }
       return $tiptext;
     }
   });

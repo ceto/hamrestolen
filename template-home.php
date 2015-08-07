@@ -39,39 +39,112 @@
 
 <section class="home__choserblock" id="finndinbolig">
   <div class="thechooser">
-    <div id="visualchooser" class="visualchooser visualchooser-starter" data-width="1921" data-height="1401">
-      <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser_update-01.jpg" alt="">
+    <div id="visualchooser" class="visualchooser visualchooser-starter" data-width="1921" data-height="801">
+      <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser.jpg" alt="">
     </div>
 
     <?php 
-      $floors_args = array(
+      $byggs_args = array(
         'hide_empty' => false,
-        'exclude' => array(3,4,5),  
+        'parent' => 0  
       );
-      $the_floors = get_terms('building', $floors_args );
+      $the_bygs = get_terms('building', $byggs_args );
     ?>
     <div id="detailswrapper" class="container detailswrapper">
       <div class="row">
-        <div class="datatable datatable--floors">
-            <?php foreach ($the_floors as $floor) { ?>
+      <div class="col-md-10 col-md-offset-1">
+        <div class="datatable datatable--buildings">
+          <p class="datarow datatable--head">
+            <span class="datarow--cell de">Bygg</span>
+            <span class="datarow--cell de">Leilighets</span>
+            <span class="datarow--cell de">Fri</span>
+          </p>
+            <?php foreach ($the_bygs as $bygg) { ?>
+
+              <?php 
+                $bq = new WP_Query( array(
+                  'post_type' => 'apartment',
+                  'tax_query' => array(
+                      array(
+                        'taxonomy' => 'building',
+                        'field'    => 'id',
+                        'terms'    => $bygg->term_id,
+                      ),
+                  ),
+
+                  )
+                );
+                $no_flat = $bq->post_count;
+                $bq = new WP_Query( array(
+                  'post_type' => 'apartment',
+                  'tax_query' => array(
+                      array(
+                        'taxonomy' => 'building',
+                        'field'    => 'id',
+                        'terms'    => $bygg->term_id,
+                      ),
+                  ),
+                  'meta_query' => array(
+                    array(
+                      'key'     => '_meta_state',
+                      'value'   => array( 'fri' ),
+                      'compare' => 'IN',
+                    ),
+                  ),
+
+                  )
+                );
+                $no_flatfree = $bq->post_count;
+                // $bq = new WP_Query( array(
+                //   'post_type' => 'apartment',
+                //   'tax_query' => array(
+                //       array(
+                //         'taxonomy' => 'building',
+                //         'field'    => 'id',
+                //         'terms'    => $bygg->term_id,
+                //       ),
+                //   ),
+                //   'meta_query' => array(
+                //     array(
+                //       'key'     => '_meta_state',
+                //       'value'   => array( 'reserved' ),
+                //       'compare' => 'IN',
+                //     ),
+                //   ),
+
+                //   )
+                // );
+                // $no_flatres = $bq->post_count;
+                // $no_flatsold= $no_flat - ($no_flatfree + $no_flatres);
+
+              ?>
+
+
               <p class="datarow">
-                <a id="ap-<?= get_the_ID();  ?>" class="datarow--link" href="<?= get_term_link( $floor, 'building'); ?>" title="<?= $floor->name ?>" 
-                  data-name="<?=$floor->name ?>"
-                  data-svgdata="<?= get_tax_meta($floor,'_meta_floorsvg') ?>"
-                  data-url="<?= get_term_link( $floor, 'building'); ?>"
+                <a id="ap-<?= get_the_ID();  ?>" class="datarow--link" href="<?= get_term_link( $bygg, 'building'); ?>" title="<?= $bygg->name ?>" 
+                  data-name="<?=$bygg->name ?>"
+                  data-svgdata="<?= get_tax_meta($bygg,'_meta_floorsvg') ?>"
+                  data-url="<?= get_term_link( $bygg, 'building'); ?>"
+                  data-state="fri"
+                  data-noflat="<?= $no_flat ?>"
+                  data-noflatfree="<?= $no_flatfree ?>"
                 >
-                  <span class="datarow--cell"><?= $floor->name ?></span>
+                  <span class="datarow--cell"><?= $bygg->name ?></span>
+                  <span class="datarow--cell"><?= $no_flat ?></span>
+                  <span class="datarow--cell"><?= $no_flatfree ?></span>
                 </a>
               </p> 
               
             <?php } ?>
           </div>
         </div>
+      </div>
     </div>
   </div>
 
 </section>
 
+<hr class="mt-0 mb-0">
 
 <section class="page-section" id="beliggenhet">
   <div class="container relative">

@@ -1,5 +1,41 @@
 <?php while (have_posts()) : the_post(); ?>
 <?php $buildlist = wp_get_post_terms($post->ID, 'building'); ?>
+
+      <?php 
+        $types = get_the_terms( $post->ID, 'apartment-type' );
+        foreach ($types as $key => $value) { $type = $value; }
+        $the_sameaps = new WP_Query(array(
+            'post_type'   => array('apartment'),
+            'ignore_sticky_posts' => true,
+            'posts_per_page'         => -1,
+            'orderby' => 'title',
+            'order' => 'ASC',
+            'tax_query' => array(
+              array(
+                'taxonomy' => 'apartment-type',
+                'field'    => 'id',
+                'terms'    => array( $type->term_id ),
+              ),
+            )
+          )
+        );
+
+        $a_rom=get_tax_meta($type,'_tmeta_rom');
+        $a_bra=get_tax_meta($type,'_tmeta_bra');
+        $a_prom=get_tax_meta($type,'_tmeta_prom');
+        $a_balkong=get_tax_meta($type,'_tmeta_balkong');
+        $a_markterasse=get_tax_meta($type,'_tmeta_markterasse');
+        $a_view=get_tax_meta($type,'_tmeta_view');
+        $a_schema=get_tax_meta($type,'_tmeta_schema');
+      ?>
+      <?php $samelist=''; while ($the_sameaps->have_posts()) : $the_sameaps->the_post(); ?>
+        <?php $samelist .= '<a href="'.get_permalink().'">'.get_the_title().'</a> | '; ?>
+      <?php endwhile; $samelist=substr($samelist, 0, -3); ?>
+      <?php wp_reset_query(); ?>
+
+
+
+
 <?php get_template_part('templates/apartment', 'header'); ?>
 <section class="page-section">
   <div class="container relative">
@@ -8,46 +44,46 @@
         <div class="col-md-8">    
           <div class="single--apartment__alaprajz">
             <?php
-              $floormap = wp_get_attachment_image_src( get_post_meta($post->ID, '_meta_floormap_id', true), '', FALSE);
+              $floormap = wp_get_attachment_image_src( $a_view['id'], '', FALSE);
+              $schema = wp_get_attachment_image_src( $a_schema['id'], '', FALSE);
+              
               ?>
             <a class="popup-zoom" href="<?php echo $floormap[0]; ?>">
               <img src="<?php echo $floormap[0]; ?>" alt="<?php the_title(); ?>"/>
             </a>
           </div>
         </div>
-        <div class="col-md-3 col-md-offset-1">  
+        <div class="col-md-3 col-md-offset-1"> 
           <div class="single--apartment__adatok">
             <?php $buildlist = wp_get_post_terms($post->ID, 'building'); ?>
             <div class="work-detail mt-50">
                 <h1 class="font-alt hs-line-8 mt-0 mb-20">Leilighets nr. <?php the_title(); ?></h1>
                 <div class="work-full-detail">
                     <p><strong>Bygg</strong><?php echo $buildlist[0]->name; ?></p>
-                    <p><strong>Rom</strong><?php echo get_post_meta( $post->ID, '_meta_rom', true ); ?>-roms</p>
+                    <p><strong>Rom</strong><?php echo $a_rom; ?>-roms</p>
                     <p><strong>Etg</strong><?php echo get_post_meta( $post->ID, '_meta_floor', true ); ?></p>
                     <p><strong>BRA</strong><?php echo get_post_meta( $post->ID, '_meta_bra', true ); ?> m<sup>2</sup></p>
-                    <p><strong>P-rom</strong><?php echo get_post_meta( $post->ID, '_meta_prom', true ); ?> m<sup>2</sup></p>
-                    <?php if (get_post_meta( $post->ID, '_meta_balkong', true )!='') : ?>
-                    <p><strong>Balkong</strong><?php echo get_post_meta( $post->ID, '_meta_balkong', true ); ?> m<sup>2</sup></p>
+                    <p><strong>P-rom</strong><?php echo $a_prom; ?> m<sup>2</sup></p>
+                    <?php if ($a_balkong!='') : ?>
+                    <p><strong>Balkong</strong><?php echo $a_balkong; ?> m<sup>2</sup></p>
                     <?php endif; ?>
-                    <?php if (get_post_meta( $post->ID, '_meta_markterasse', true )!='') : ?>
-                    <p><strong>Markterasse</strong><?php echo get_post_meta( $post->ID, '_meta_markterasse', true ); ?> m<sup>2</sup></p>
+                    <?php if ($a_markterasse!='') : ?>
+                    <p><strong>Markterasse</strong><?php echo $a_markterasse; ?> m<sup>2</sup></p>
                     <?php endif; ?>
                     <?php if (get_post_meta( $post->ID, '_meta_state', true )=='fri') : ?>
                     <p><strong>Pris</strong><?php echo number_format(get_post_meta( $post->ID, '_meta_pris', true ), 0, ',', ' '); ?>,-</p>
                     <?php else : ?>
                     <p><strong>Status</strong> <?php echo get_post_meta( $post->ID, '_meta_state', true ); ?></p>
                     <?php endif; ?>
+                    <p><strong>Same type</strong> <?php echo $samelist; ?></p>
                 </div>
             </div>
-<!--             <div class="single--apartment__schema">
-              <?php
-                $schema = wp_get_attachment_image_src( get_post_meta($post->ID, '_meta_schema_id', true), '', FALSE);
-                ?>
-              <a class="popup-zoom" href="<?php echo $schema[0]; ?>">
-                <img src="<?php echo $schema[0]; ?>" alt="Schema"/>
-              </a>
-            </div> -->
           </div>
+          <div class="single--apartment__schema">
+            <a class="popup-zoom" href="<?php echo $schema[0]; ?>">
+              <img src="<?php echo $schema[0]; ?>" alt="Schema"/>
+            </a>
+          </div> 
         </div>
   
 

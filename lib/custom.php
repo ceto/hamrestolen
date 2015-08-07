@@ -101,6 +101,7 @@ function pf_create_type_taxonomies() {
 
 /********* END OF Custom Apartment Type Taxonomies for Apartment Management ****************/
 
+
 /********* Custom Tax Meta for Building & Apartment Type Taxonomy ****************/
 require_once("TMC/Tax-meta-class.php");
 if (is_admin()){
@@ -116,29 +117,42 @@ if (is_admin()){
   );
   $building_meta =  new Tax_Meta_Class($csonfig);
 
-  $building_meta->addTextarea($tprefix.'floorsvg', array('name'=> 'Floor SVG Data'));
+  $building_meta->addTextarea($tprefix.'floorsvg', array('name'=> 'SVG Data'));
 
   $building_meta->addImage($tprefix.'image', array('name'=> 'Image'));
 
   $building_meta->Finish();
 }
 
+/********* END OF Custom Tax Meta for Building Taxonomy ****************/
+
 
 if (is_admin()){
-  $tprefix = '_meta_';
+  $tprefix = '_tmeta_';
   $csonfig = array(
     'id' => 'ometa', // meta box id, unique per meta box
-    'title' => 'Details of the apartment', // meta box title
+    'title' => 'Details of the apartment type', // meta box title
     'pages' => array('apartment-type'), // taxonomy name, accept categories, post_tag and custom taxonomies
     'context' => 'normal', // where the meta box appear: normal (default), advanced, side; optional
     'fields' => array(), // list of meta fields (can be added by field arrays)
     'local_images' => false, // Use local or hosted images (meta box images for add/remove)
     'use_with_theme' => '/wp-content/themes/hamrestolen/lib/TMC' //change path if used with theme set to true, false for a plugin or anything else for a custom path(default false).
   );
+
   $aptype_meta =  new Tax_Meta_Class($csonfig);
   
-  $aptype_meta->addImage($tprefix.'floorplan', array('name'=> 'Floorplan'));
+  $aptype_meta->addText($tprefix.'rom', array('name'=> 'ROM'));
+  $aptype_meta->addText($tprefix.'bra', array('name'=> 'BRA'));
+  $aptype_meta->addText($tprefix.'prom', array('name'=> 'P-rom'));
+  $aptype_meta->addText($tprefix.'bod', array('name'=> 'Bod'));
+  $aptype_meta->addText($tprefix.'balkong', array('name'=> 'Balkong'));
+  $aptype_meta->addText($tprefix.'markterasse', array('name'=> 'Markterasse'));
+
+  $aptype_meta->addImage($tprefix.'view', array('name'=> 'View'));
   $aptype_meta->addImage($tprefix.'schema', array('name'=> 'Schema'));
+
+  $aptype_meta->addFile($tprefix.'schema', array('name'=> 'Attachment for download'));
+
   $aptype_meta->Finish();
 }
 /********* END OF Custom Tax Meta for Building Taxonomy ****************/
@@ -180,11 +194,11 @@ function hs_metaboxes( array $meta_boxes ) {
           'solgt' => 'Solgt',
       )
     ),
-    array(
-        'name' => 'Rom',
-        'id'   => $prefix . 'rom',
-        'type' => 'text_small',
-    ),
+    // array(
+    //     'name' => 'Rom',
+    //     'id'   => $prefix . 'rom',
+    //     'type' => 'text_small',
+    // ),
     array(
       'name' => __('Floor'),
       'id'   => $prefix . 'floor',
@@ -199,61 +213,60 @@ function hs_metaboxes( array $meta_boxes ) {
           '6' => '6. OG',
       )
     ),
-    array(
-        'name' => 'BRA',
-        'id'   => $prefix . 'bra',
-        'type' => 'text_small',
-    ),
-    
-    array(
-        'name' => 'P-rom',
-        'id'   => $prefix . 'prom',
-        'type' => 'text_small',
-    ),
-    array(
-        'name' => 'Bod',
-        'id'   => $prefix . 'bod',
-        'type' => 'text_small',
-    ),
-    array(
-        'name' => 'Balkong',
-        'id'   => $prefix . 'balkong',
-        'type' => 'text_small',
-    ),
-    array(
-        'name' => 'Markterasse',
-        'id'   => $prefix . 'markterasse',
-        'type' => 'text_small',
-    ),
+    // array(
+    //     'name' => 'BRA',
+    //     'id'   => $prefix . 'bra',
+    //     'type' => 'text_small',
+    // ),
+    // array(
+    //     'name' => 'P-rom',
+    //     'id'   => $prefix . 'prom',
+    //     'type' => 'text_small',
+    // ),
+    // array(
+    //     'name' => 'Bod',
+    //     'id'   => $prefix . 'bod',
+    //     'type' => 'text_small',
+    // ),
+    // array(
+    //     'name' => 'Balkong',
+    //     'id'   => $prefix . 'balkong',
+    //     'type' => 'text_small',
+    // ),
+    // array(
+    //     'name' => 'Markterasse',
+    //     'id'   => $prefix . 'markterasse',
+    //     'type' => 'text_small',
+    // ),
     array(
         'name' => 'Pris',
         'id'   => $prefix . 'pris',
         'type' => 'text_small',
     ),
-    array(
-      'name' => 'Floor map',
-      'desc' => 'Upload an image or enter an URL.',
-      'id' => $prefix . 'floormap',
-      'type' => 'file',
-    ),
-    array(
-      'name' => 'Schema',
-      'desc' => 'Upload an image or enter an URL.',
-      'id' => $prefix . 'schema',
-      'type' => 'file',
-    ),
-    array(
-        'name' => 'SVG Def. on View I.',
-        'desc' => 'Experimental! Do not change it!',
-        'id'   => $prefix . 'svgdata1',
-        'type' => 'textarea_small',
-    ),
-    array(
-        'name' => 'SVG Def. on View II.',
-        'desc' => 'Experimental! Do not change it!',
-        'id'   => $prefix . 'svgdata2',
-        'type' => 'textarea_small',
-    ),
+    // array(
+    //   'name' => 'Floor map',
+    //   'desc' => 'Upload an image or enter an URL.',
+    //   'id' => $prefix . 'floormap',
+    //   'type' => 'file',
+    // ),
+    // array(
+    //   'name' => 'Schema',
+    //   'desc' => 'Upload an image or enter an URL.',
+    //   'id' => $prefix . 'schema',
+    //   'type' => 'file',
+    // ),
+    // array(
+    //     'name' => 'SVG Def. on View I.',
+    //     'desc' => 'Experimental! Do not change it!',
+    //     'id'   => $prefix . 'svgdata1',
+    //     'type' => 'textarea_small',
+    // ),
+    // array(
+    //     'name' => 'SVG Def. on View II.',
+    //     'desc' => 'Experimental! Do not change it!',
+    //     'id'   => $prefix . 'svgdata2',
+    //     'type' => 'textarea_small',
+    // ),
    
     ),
   );
