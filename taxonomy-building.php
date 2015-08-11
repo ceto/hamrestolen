@@ -15,7 +15,7 @@
           <div class="col-md-12 align-left">
               <h1 class="hs-line-11 font-alt mt-50 mb-0"><?= $actbuilding->name; ?></h1>
               <div class="mod-breadcrumbs font-alt">
-                  <a href="<?= esc_url(home_url('/')); ?>">Home</a>&nbsp;/&nbsp;
+                  <a href="<?= esc_url(home_url('/')); ?>">Hamrestolen</a>&nbsp;/&nbsp;
                   <a href="<?= esc_url(home_url('/')); ?>/#finndinbolig">Byggs</a>&nbsp;/&nbsp;
                   <span><?= $actbuilding->name; ?></span>
               </div>
@@ -53,11 +53,11 @@
   <div id="detailswrapper" class="row">
     <div class="datatable datatable-apartments">
       <p class="datarow datatable--head">
-        <span class="datarow--cell de">Leilnr</span>
-        <span class="datarow--cell de">Roms</span>
+        <span class="datarow--cell">Leilnr</span>
+        <span class="datarow--cell">Roms</span>
         <span class="datarow--cell">Etg</span>
         <span class="datarow--cell">BRA</span>
-        <span class="datarow--cell">P-rom</span>
+        <span class="datarow--cell">Garasje</span>
         <span class="datarow--cell">Pris / Status</span>
       </p>
       <?php while (have_posts()) : the_post(); ?>

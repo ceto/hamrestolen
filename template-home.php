@@ -69,12 +69,13 @@
                         'taxonomy' => 'building',
                         'field'    => 'id',
                         'terms'    => $bygg->term_id,
+                        //'posts_per_page' => 1000
                       ),
                   ),
 
                   )
                 );
-                $no_flat = $bq->post_count;
+                $no_flat = $bq->found_posts;
                 $bq = new WP_Query( array(
                   'post_type' => 'apartment',
                   'tax_query' => array(
@@ -82,6 +83,7 @@
                         'taxonomy' => 'building',
                         'field'    => 'id',
                         'terms'    => $bygg->term_id,
+                       // 'posts_per_page' => 1000
                       ),
                   ),
                   'meta_query' => array(
@@ -94,35 +96,13 @@
 
                   )
                 );
-                $no_flatfree = $bq->post_count;
-                // $bq = new WP_Query( array(
-                //   'post_type' => 'apartment',
-                //   'tax_query' => array(
-                //       array(
-                //         'taxonomy' => 'building',
-                //         'field'    => 'id',
-                //         'terms'    => $bygg->term_id,
-                //       ),
-                //   ),
-                //   'meta_query' => array(
-                //     array(
-                //       'key'     => '_meta_state',
-                //       'value'   => array( 'reserved' ),
-                //       'compare' => 'IN',
-                //     ),
-                //   ),
-
-                //   )
-                // );
-                // $no_flatres = $bq->post_count;
-                // $no_flatsold= $no_flat - ($no_flatfree + $no_flatres);
-
+                $no_flatfree = $bq->found_posts;
               ?>
 
 
               <p class="datarow">
-                <a id="ap-<?= get_the_ID();  ?>" class="datarow--link" href="<?= get_term_link( $bygg, 'building'); ?>" title="<?= $bygg->name ?>" 
-                  data-name="<?=$bygg->name ?>"
+                <a id="ap-<?= $bygg->term_id;  ?>" class="datarow--link" href="<?= get_term_link( $bygg, 'building'); ?>" title="<?= $bygg->name ?>" 
+                  data-name="<?= $bygg->name ?>"
                   data-svgdata="<?= get_tax_meta($bygg,'_meta_floorsvg') ?>"
                   data-url="<?= get_term_link( $bygg, 'building'); ?>"
                   data-state="fri"

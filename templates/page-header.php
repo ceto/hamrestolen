@@ -9,7 +9,7 @@
           <div class="col-md-12 align-left">
               <h1 class="hs-line-11 font-alt mt-50 mb-0"><?= Titles\title(); ?></h1>
               <div class="mod-breadcrumbs font-alt">
-                  <a href="<?= esc_url(home_url('/')); ?>">Home</a>&nbsp;/&nbsp;
+                  <a href="<?= esc_url(home_url('/')); ?>">Hamrestolen</a>&nbsp;/&nbsp;
                   <span><?php the_title(); ?></span>
               </div>
           </div>

@@ -12,7 +12,7 @@ global $buildlist;
           <div class="col-md-12 align-left">
               <h3 class="hs-line-11 font-alt mt-50 mb-0"><?php echo $buildlist[0]->name; ?></h3>
               <div class="mod-breadcrumbs font-alt">
-                  <a href="<?= esc_url(home_url('/')); ?>/#finndinbolig">Home</a>&nbsp;/&nbsp;
+                  <a href="<?= esc_url(home_url('/')); ?>/#finndinbolig">Hamrestolen</a>&nbsp;/&nbsp;
                   <a href="<?php echo get_term_link( $buildlist[0] ); ?>"><?php echo $buildlist[0]->name; ?></a>&nbsp;/&nbsp;
                   <span><?php the_title(); ?></span>
               </div>

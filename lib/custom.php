@@ -413,3 +413,14 @@ function hs_remove_editor() {
 }
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+
+
+function hs_tweak_building_query($wp_query) {
+  if ( $wp_query->get('building')  &&  $wp_query->is_main_query() ){
+    $wp_query->set('orderby', 'title');
+    $wp_query->set('order', 'ASC');
+    $wp_query->set('posts_per_page', -1);
+  } 
+}
+add_action('pre_get_posts', 'hs_tweak_building_query');

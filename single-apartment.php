@@ -62,8 +62,7 @@
                     <p><strong>Bygg</strong><?php echo $buildlist[0]->name; ?></p>
                     <p><strong>Rom</strong><?php echo $a_rom; ?>-roms</p>
                     <p><strong>Etg</strong><?php echo get_post_meta( $post->ID, '_meta_floor', true ); ?></p>
-                    <p><strong>BRA</strong><?php echo get_post_meta( $post->ID, '_meta_bra', true ); ?> m<sup>2</sup></p>
-                    <p><strong>P-rom</strong><?php echo $a_prom; ?> m<sup>2</sup></p>
+                    <p><strong>BRA</strong><?php echo $a_bra; ?> m<sup>2</sup></p>
                     <?php if ($a_balkong!='') : ?>
                     <p><strong>Balkong</strong><?php echo $a_balkong; ?> m<sup>2</sup></p>
                     <?php endif; ?>

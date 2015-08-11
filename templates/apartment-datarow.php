@@ -32,7 +32,7 @@
 
   $ap['rom'] = $a_rom.'-roms';
   $ap['floor'] = get_post_meta( $post->ID, '_meta_floor', true );
-  $ap['bra'] = get_post_meta( $post->ID, '_meta_bra', true ).' m<sup>2</sup>';
+  $ap['bra'] = $a_bra.' m<sup>2</sup>';
   $ap['prom'] = $a_prom.' m<sup>2</sup>';
   $ap['bod'] = get_post_meta( $post->ID, '_meta_bod', true ).' m<sup>2</sup>';
   $ap['pris'] = number_format(get_post_meta( $post->ID, '_meta_pris', true ), 0, ',', ' ').',-';

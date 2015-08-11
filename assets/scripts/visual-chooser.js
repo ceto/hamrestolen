@@ -99,7 +99,7 @@ function redraw_canvas() {
     title:function() {
       var thedata=$('#'+$(this).attr('id').slice(1));
 
-      var name = thedata.attr('data-name');
+      var bname = thedata.attr('data-name');
       var noflat = thedata.attr('data-noflat');
       var noflatfree = thedata.attr('data-noflatfree');
 
@@ -112,7 +112,7 @@ function redraw_canvas() {
       // var state = thedata.attr('data-state');
       // var url = thedata.attr('data-url');
       
-      $tiptext='<p class="tooltip__item"><span>Bygg</span>'+name+'</p>';
+      $tiptext='<p class="tooltip__item"><span>Bygg</span>'+bname+'</p>';
       $tiptext+='<p class="tooltip__item"><span>Leiglighets</span>'+noflat+'</p>';
       $tiptext+='<p class="tooltip__item"><span>Fri</span>'+noflatfree+'</p>';
 
