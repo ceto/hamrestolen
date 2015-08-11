@@ -31,6 +31,7 @@
   global $gview;
 
   $ap['rom'] = $a_rom.'-roms';
+  $ap['garasje'] = (get_post_meta( $post->ID, '_meta_garasje', true )!='no')?'Ja':'-';
   $ap['floor'] = get_post_meta( $post->ID, '_meta_floor', true );
   $ap['bra'] = $a_bra.' m<sup>2</sup>';
   $ap['prom'] = $a_prom.' m<sup>2</sup>';
@@ -76,7 +77,7 @@
     <span class="datarow--cell"><?= $ap['rom']; ?></span>
     <span class="datarow--cell"><?= $ap['floor']; ?></span>
     <span class="datarow--cell"><?= $ap['bra']; ?></span>
-    <span class="datarow--cell"><?= $ap['prom']; ?></span>
+    <span class="datarow--cell"><?= $ap['garasje']; ?></span>
     <?php if ( $ap['state'] == 'fri' ) : ?>
       <span class="datarow--cell"><i class="<?= $ap['state'] ?>"></i><?= $ap['pris'] ; ?></span>
     <?php else : ?>

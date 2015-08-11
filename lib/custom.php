@@ -149,7 +149,7 @@ if (is_admin()){
   $aptype_meta->addText($tprefix.'markterasse', array('name'=> 'Markterasse'));
 
   $aptype_meta->addImage($tprefix.'view', array('name'=> 'View'));
-  $aptype_meta->addImage($tprefix.'schema', array('name'=> 'Schema'));
+  //$aptype_meta->addImage($tprefix.'schema', array('name'=> 'Schema'));
 
   $aptype_meta->addFile($tprefix.'schema', array('name'=> 'Attachment for download'));
 
@@ -194,11 +194,15 @@ function hs_metaboxes( array $meta_boxes ) {
           'solgt' => 'Solgt',
       )
     ),
-    // array(
-    //     'name' => 'Rom',
-    //     'id'   => $prefix . 'rom',
-    //     'type' => 'text_small',
-    // ),
+    array(
+      'name' => 'Garasje',
+      'id'   => $prefix . 'garasje',
+      'type' => 'radio_inline',
+      'options' => array(
+          'ja' => 'Ja',
+          'no' => 'No',
+      )
+    ),
     array(
       'name' => __('Floor'),
       'id'   => $prefix . 'floor',

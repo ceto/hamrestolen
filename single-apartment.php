@@ -37,7 +37,7 @@
 
 
 <?php get_template_part('templates/apartment', 'header'); ?>
-<section class="page-section">
+<section class="small-section">
   <div class="container relative">
     <div class="section-text">   
       <div class="row">
@@ -45,9 +45,7 @@
           <div class="single--apartment__alaprajz">
             <?php
               $floormap = wp_get_attachment_image_src( $a_view['id'], '', FALSE);
-              $schema = wp_get_attachment_image_src( $a_schema['id'], '', FALSE);
-              
-              ?>
+            ?>
             <a class="popup-zoom" href="<?php echo $floormap[0]; ?>">
               <img src="<?php echo $floormap[0]; ?>" alt="<?php the_title(); ?>"/>
             </a>
@@ -69,6 +67,7 @@
                     <?php if ($a_markterasse!='') : ?>
                     <p><strong>Markterasse</strong><?php echo $a_markterasse; ?> m<sup>2</sup></p>
                     <?php endif; ?>
+                    <p><strong>garasje</strong><?php echo $ap['garasje'] = (get_post_meta( $post->ID, '_meta_garasje', true )!='no')?'Ja':'-'; ?></p>
                     <?php if (get_post_meta( $post->ID, '_meta_state', true )=='fri') : ?>
                     <p><strong>Pris</strong><?php echo number_format(get_post_meta( $post->ID, '_meta_pris', true ), 0, ',', ' '); ?>,-</p>
                     <?php else : ?>
@@ -77,11 +76,10 @@
                     <p><strong>Same type</strong> <?php echo $samelist; ?></p>
                 </div>
             </div>
+             
           </div>
           <div class="single--apartment__schema">
-            <a class="popup-zoom" href="<?php echo $schema[0]; ?>">
-              <img src="<?php echo $schema[0]; ?>" alt="Schema"/>
-            </a>
+            <a class="btn btn-mod btn-border btn-medium btn-round" href="<?= $a_schema[url]; ?>">Last ned PDF <i class="ion ion-clipboard"></i></a>
           </div> 
         </div>
   
