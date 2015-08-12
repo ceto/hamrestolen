@@ -148,8 +148,8 @@ if (is_admin()){
   $aptype_meta->addText($tprefix.'balkong', array('name'=> 'Balkong'));
   $aptype_meta->addText($tprefix.'markterasse', array('name'=> 'Markterasse'));
 
-  $aptype_meta->addImage($tprefix.'view', array('name'=> 'View'));
-  //$aptype_meta->addImage($tprefix.'schema', array('name'=> 'Schema'));
+  $aptype_meta->addImage($tprefix.'view', array('name'=> '3D View'));
+  $aptype_meta->addImage($tprefix.'2d', array('name'=> '2D Map (JPG)'));
 
   $aptype_meta->addFile($tprefix.'schema', array('name'=> 'Attachment for download'));
 
@@ -259,12 +259,12 @@ function hs_metaboxes( array $meta_boxes ) {
     //   'id' => $prefix . 'schema',
     //   'type' => 'file',
     // ),
-    // array(
-    //     'name' => 'SVG Def. on View I.',
-    //     'desc' => 'Experimental! Do not change it!',
-    //     'id'   => $prefix . 'svgdata1',
-    //     'type' => 'textarea_small',
-    // ),
+    array(
+        'name' => 'SVG Definition',
+        'desc' => 'Experimental! Do not change it!',
+        'id'   => $prefix . 'svgdata',
+        'type' => 'textarea_small',
+    ),
     // array(
     //     'name' => 'SVG Def. on View II.',
     //     'desc' => 'Experimental! Do not change it!',
