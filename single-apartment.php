@@ -26,6 +26,7 @@
         $a_balkong=get_tax_meta($type,'_tmeta_balkong');
         $a_markterasse=get_tax_meta($type,'_tmeta_markterasse');
         $a_view=get_tax_meta($type,'_tmeta_view');
+        $a_2d=get_tax_meta($type,'_tmeta_2d');
         $a_schema=get_tax_meta($type,'_tmeta_schema');
       ?>
       <?php $samelist=''; while ($the_sameaps->have_posts()) : $the_sameaps->the_post(); ?>
@@ -45,6 +46,7 @@
           <div class="single--apartment__alaprajz">
             <?php
               $floormap = wp_get_attachment_image_src( $a_view['id'], '', FALSE);
+              $d2d = wp_get_attachment_image_src( $a_2d['id'], '', FALSE);
             ?>
             <a class="popup-zoom" href="<?php echo $floormap[0]; ?>">
               <img src="<?php echo $floormap[0]; ?>" alt="<?php the_title(); ?>"/>
@@ -79,7 +81,13 @@
              
           </div>
           <div class="single--apartment__schema">
-            <a class="btn btn-mod btn-border btn-medium btn-round" href="<?= $a_schema[url]; ?>">Last ned PDF <i class="ion ion-clipboard"></i></a>
+              
+<!--               <div class="col-sm-4 col-sm-offset-4">
+                <a class="popup-zoom" href="<?php echo $d2d[0]; ?>">
+                  <img src="<?php echo $d2d[0]; ?>" alt="<?php the_title(); ?>"/>
+                </a>
+              </div> -->
+              <a class="btn btn-mod btn-border btn-medium btn-round" href="<?= $a_schema[url]; ?>">Last ned PDF</a>
           </div> 
         </div>
   
