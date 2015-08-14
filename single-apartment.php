@@ -41,7 +41,7 @@
   <div class="container relative">
     <div class="section-text">   
       <div class="row">
-        <div class="col-md-8">    
+        <div class="col-md-6">    
           <div class="single--apartment__alaprajz">
             <?php
               $floormap = wp_get_attachment_image_src( $a_view['id'], '', FALSE);
@@ -51,7 +51,7 @@
             </a>
           </div>
         </div>
-        <div class="col-md-3 col-md-offset-1"> 
+        <div class="col-md-4 col-md-offset-2"> 
           <div class="single--apartment__adatok">
             <?php $buildlist = wp_get_post_terms($post->ID, 'building'); ?>
             <div class="work-detail mt-50">
@@ -73,7 +73,7 @@
                     <?php else : ?>
                     <p><strong>Status</strong> <?php echo get_post_meta( $post->ID, '_meta_state', true ); ?></p>
                     <?php endif; ?>
-                    <p><strong>Same type</strong> <?php echo $samelist; ?></p>
+                    <p><strong>Samme typen</strong> <?php echo $samelist; ?></p>
                 </div>
             </div>
              

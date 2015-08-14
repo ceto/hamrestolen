@@ -16,8 +16,22 @@
         <div class="col-md-10 col-md-offset-1">
           <div class="lead">
             <p> Nytt flott boligprosjekt med flott beliggenhet i naturskjønt område. Prosjektet er bestående av velproporsjonerte enheter med fine uteområder/terrasser. 48 boliger fordelt på 3 bygg, alle med garasjeplass. </p>
+
+<p>
+Alle leilighetene er gjennomgående og har usjenerte og skjermede terrasser med utsikt.
+Byggene  har garasjekjeller og 5 plan med boliger. De 3 nederste etasjene har lik planløsning fordelt på 4 leiligheter i hver etasje.
+I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.
+</p>
           </div>
         </div>
+
+
+        <div class="col-md-10 col-md-offset-1">
+          <div class="mt-50 mt-sm-20 align-center">
+            <p><a href="<?php echo get_permalink(85); ?>" class="btn btn-mod btn-border btn-medium btn-round">Les mer</a></p>
+          </div>
+        </div>
+
 		  </div>
 	 </div>
   </div>
@@ -107,7 +121,7 @@
                 <div class="col-md-10 col-md-offset-1">
                     <h1 class="hs-line-8 font-alt mb-0 align-center"><?= $bygg->name ?></h1>
                     <div class="hs-line-4 font-alt align-center black">
-                      <?= $no_flatfree ?> Fri leilighets</div>
+                      <?= $no_flatfree ?> tilgjengelige leiligheter</div>
                 </div>
               </div>
 
@@ -118,7 +132,7 @@
             <div class="col-md-10 col-md-offset-1">
               <div class="datatable datatable-apartments">
                 <p class="datarow datatable--head">
-                  <span class="datarow--cell">Leilnr</span>
+                  <span class="datarow--cell">Leil.nr</span>
                   <span class="datarow--cell">Roms</span>
                   <span class="datarow--cell">Etg</span>
                   <span class="datarow--cell">BRA</span>
@@ -151,18 +165,18 @@
     <div class="section-text mb-50 mb-sm-20">   
       <div class="row">
         <div class="col-md-5 col-md-offset-1">
-          <p>Prosjektet i Hamrestølen er bestående av 3 bolighus med tilsammen 48 leiligheter. Det er 16 leiligheter i hvert bolighus hvorav en av leilighetene er beliggende for seg selv på toppen av hvert bygg.</p>
-          <p>Prosjektet ligger i naturskjønne omgivelser med mye sol, og med fantastisk utsikt over Kalandsvannet og områdene rundt.</p>
+          <p>Prosjektet i Hamrestølen er bestående av 3 bolighus med tilsammen 48 leiligheter. Det er 16 leiligheter i hvert bolighus hvorav en av leilighetene er beliggende for seg selv på toppen av hvert bygg.
+Prosjektet ligger i naturskjønne omgivelser med mye sol, og med fantastisk utsikt over Kalandsvannet og områdene rundt.
+</p>
         </div>
         <div class="col-md-5">
-          <p>Alle leilighetene er gjennomgående og har usjenerte og skjermede terrasser med utsikt. Byggene  har garasjekjeller og 5 plan med boliger. De 3 nederste etasjene har lik planløsning fordelt på 4 leiligheter i hver etasje.</p>
-          <p>I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.</p>
+          <p>Kaland er et område i den sørøstlige delen av Fana bydel i Bergen. Kaland ligger i de mer spredtbebygde deler av bydelen, sør for tettbebyggelsen og øst for delområdet Fana. I sør grenser området til Os kommune. Kalandsvatnet er Bergens største innsjø, omgitt av store områder med jordbruk, skog og fjell. Her ligger det 25 gårdsbruk, medregnet Bontveitdalen og Hauglandsdalen i øst.</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <div class="mt-50 mt-sm-20 align-center">
-            <p><a href="<?php echo get_permalink(85); ?>" class="btn btn-mod btn-border btn-medium btn-round">Read full description</a></p>
+            <p><a href="<?php echo get_permalink(85); ?>" class="btn btn-mod btn-border btn-medium btn-round">Les mer</a></p>
           </div>
         </div>
       </div>

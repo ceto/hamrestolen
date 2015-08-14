@@ -69,7 +69,7 @@
                 <div class="home-text">
                     
                     <h2 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">
-                        Hamrestolen Leilighets
+                        Hamrestolen Leiligheter
                     </h2>                       
                     
                     <h1 class="hs-line-14 font-alt mb-50 mb-xs-30">
