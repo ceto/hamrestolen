@@ -99,35 +99,30 @@ function redraw_canvas() {
     title:function() {
       var thedata=$('#'+$(this).attr('id').slice(1));
 
-      var bname = thedata.attr('data-name');
       var noflat = thedata.attr('data-noflat');
       var noflatfree = thedata.attr('data-noflatfree');
 
-      // var rom = thedata.attr('data-rom');
-      // var floor = thedata.attr('data-floor');
-      // var bra = thedata.attr('data-bra');
-      // var prom = thedata.attr('data-prom');
-      // var bod = thedata.attr('data-bod');
-      // var pris = thedata.attr('data-pris');
-      // var state = thedata.attr('data-state');
-      // var url = thedata.attr('data-url');
+      var name = thedata.attr('data-name');
+      var rom = thedata.attr('data-rom');
+      var floor = thedata.attr('data-floor');
+      var bra = thedata.attr('data-bra');
+      var bod = thedata.attr('data-bod');
+      var pris = thedata.attr('data-pris');
+      var state = thedata.attr('data-state');
+      var url = thedata.attr('data-url');
       
-      $tiptext='<p class="tooltip__item"><span>Bygg</span>'+bname+'</p>';
-      $tiptext+='<p class="tooltip__item"><span>Leiglighets</span>'+noflat+'</p>';
-      $tiptext+='<p class="tooltip__item"><span>Fri</span>'+noflatfree+'</p>';
-
-      // $tiptext+='<p class="tooltip__item"><span>Rom</span>'+rom+'</p>';
-      // $tiptext+='<p class="tooltip__item"><span>Etg</span>'+floor+'</p>';
-      // $tiptext+='<p class="tooltip__item"><span>Bra</span>'+bra+'</p>';
-      // $tiptext+='<p class="tooltip__item"><span>P-rom</span>'+prom+'</p>';
+      $tiptext='<p class="tooltip__item"><span>Leiglighet</span>'+name+'</p>';
+      $tiptext+='<p class="tooltip__item"><span>Rom</span>'+rom+'</p>';
+      $tiptext+='<p class="tooltip__item"><span>Etg</span>'+floor+'</p>';
+      $tiptext+='<p class="tooltip__item"><span>Bra</span>'+bra+'</p>';
       
 
-      // if (state==='fri') {
-      //   $tiptext+='<p class="tooltip__item"><span>Pris</span>'+pris+'</p>';
-      // }
-      // if(state!=='fri') {
-      //   $tiptext+='<p class="tooltip__item"><span>Status</span>'+state+'</p>';
-      // }
+      if (state==='fri') {
+        $tiptext+='<p class="tooltip__item"><span>Pris</span>'+pris+'</p>';
+      }
+      if(state!=='fri') {
+        $tiptext+='<p class="tooltip__item"><span>Status</span>'+state+'</p>';
+      }
       return $tiptext;
     }
   });

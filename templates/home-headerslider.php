@@ -18,7 +18,7 @@
                 </h2>
 
                 <div class="local-scroll">
-                    <a href="#about" class="btn btn-mod btn-border-w btn-medium btn-round hidden-xs">See more</a>
+                    <a href="#about" class="btn btn-mod btn-border-w btn-medium btn-round hidden-xs">Les Mer</a>
                 </div>
                 
                 
@@ -69,15 +69,15 @@
                 <div class="home-text">
                     
                     <h2 class="hs-line-8 no-transp font-alt mb-50 mb-xs-30">
-                        Create your dream with
+                        Hamrestolen Leilighets
                     </h2>                       
                     
                     <h1 class="hs-line-14 font-alt mb-50 mb-xs-30">
-                        Amazing Design
+                        ommer for salg
                     </h1>
                     
-                    <div>
-                        <a href="pages-pricing-1.html" class="btn btn-mod btn-border-w btn-medium btn-round">Get Pricing</a>
+                    <div class="local-scroll">
+                        <a href="#finndinbolig" class="btn btn-mod btn-border-w btn-medium btn-round hidden-xs">Finn Din Bolig</a>
                     </div>
                     
                 </div>

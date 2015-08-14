@@ -39,9 +39,12 @@
 
 <section class="home__choserblock" id="finndinbolig">
   <div class="thechooser">
-    <div id="visualchooser" class="visualchooser visualchooser-starter" data-width="1921" data-height="801">
-      <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser.jpg" alt="">
-    </div>
+    
+
+        <div id="visualchooser" class="visualchooser visualchooser-starter" data-width="1921" data-height="1401">
+          <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser_update_normal-01.jpg" alt="">
+        </div>
+
 
     <?php 
       $byggs_args = array(
@@ -50,76 +53,92 @@
       );
       $the_bygs = get_terms('building', $byggs_args );
     ?>
-    <div id="detailswrapper" class="container detailswrapper">
-      <div class="row">
-      <div class="col-md-10 col-md-offset-1">
-        <div class="datatable datatable--buildings">
-          <p class="datarow datatable--head">
-            <span class="datarow--cell de">Bygg</span>
-            <span class="datarow--cell de">Leilighets</span>
-            <span class="datarow--cell de">Fri</span>
-          </p>
-            <?php foreach ($the_bygs as $bygg) { ?>
 
-              <?php 
-                $bq = new WP_Query( array(
-                  'post_type' => 'apartment',
-                  'tax_query' => array(
-                      array(
-                        'taxonomy' => 'building',
-                        'field'    => 'id',
-                        'terms'    => $bygg->term_id,
-                        //'posts_per_page' => 1000
-                      ),
+
+    <div id="detailswrapper" class="container">
+      
+        <?php foreach ($the_bygs as $bygg) { ?>
+        
+        <?php 
+
+
+            $bq = new WP_Query( array(
+              'post_type' => 'apartment',
+              'tax_query' => array(
+                  array(
+                    'taxonomy' => 'building',
+                    'field'    => 'id',
+                    'terms'    => $bygg->term_id,
+                   // 'posts_per_page' => 1000
                   ),
+              ),
+              'meta_query' => array(
+                array(
+                  'key'     => '_meta_state',
+                  'value'   => array( 'fri' ),
+                  'compare' => 'IN',
+                ),
+              ),
 
-                  )
-                );
-                $no_flat = $bq->found_posts;
-                $bq = new WP_Query( array(
-                  'post_type' => 'apartment',
-                  'tax_query' => array(
-                      array(
-                        'taxonomy' => 'building',
-                        'field'    => 'id',
-                        'terms'    => $bygg->term_id,
-                       // 'posts_per_page' => 1000
-                      ),
+              )
+            );
+            $no_flatfree = $bq->found_posts;
+
+            $the_ap = new WP_Query( array(
+              'post_type' => 'apartment',
+              'orderby' => 'title',
+              'order' => 'ASC',
+              'posts_per_page' => -1,
+              'tax_query' => array(
+                  array(
+                    'taxonomy' => 'building',
+                    'field'    => 'id',
+                    'terms'    => $bygg->term_id,
                   ),
-                  'meta_query' => array(
-                    array(
-                      'key'     => '_meta_state',
-                      'value'   => array( 'fri' ),
-                      'compare' => 'IN',
-                    ),
-                  ),
+              )
+            ));
 
-                  )
-                );
-                $no_flatfree = $bq->found_posts;
-              ?>
+          ?>
 
+          <section class="small-section pt-30 pb-30">
+            <div class="relative container">
 
-              <p class="datarow">
-                <a id="ap-<?= $bygg->term_id;  ?>" class="datarow--link" href="<?= get_term_link( $bygg, 'building'); ?>" title="<?= $bygg->name ?>" 
-                  data-name="<?= $bygg->name ?>"
-                  data-svgdata="<?= get_tax_meta($bygg,'_meta_floorsvg') ?>"
-                  data-url="<?= get_term_link( $bygg, 'building'); ?>"
-                  data-state="fri"
-                  data-noflat="<?= $no_flat ?>"
-                  data-noflatfree="<?= $no_flatfree ?>"
-                >
-                  <span class="datarow--cell"><?= $bygg->name ?></span>
-                  <span class="datarow--cell"><?= $no_flat ?></span>
-                  <span class="datarow--cell"><?= $no_flatfree ?></span>
-                </a>
-              </p> 
+              <div class="row">            
+                <div class="col-md-10 col-md-offset-1">
+                    <h1 class="hs-line-8 font-alt mb-0 align-center"><?= $bygg->name ?></h1>
+                    <div class="hs-line-4 font-alt align-center black">
+                      <?= $no_flatfree ?> Fri leilighets</div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <div class="datatable datatable-apartments">
+                <p class="datarow datatable--head">
+                  <span class="datarow--cell">Leilnr</span>
+                  <span class="datarow--cell">Roms</span>
+                  <span class="datarow--cell">Etg</span>
+                  <span class="datarow--cell">BRA</span>
+                  <span class="datarow--cell">Garasje</span>
+                  <span class="datarow--cell">Pris / Status</span>
+                </p>
+
               
-            <?php } ?>
+
+
+                <?php while ($the_ap->have_posts()) : $the_ap->the_post(); ?>
+                  <?php get_template_part('templates/apartment','datarow'); ?>
+                <?php endwhile; ?>
+            </div>
           </div>
         </div>
-      </div>
+
+       <?php } ?>
     </div>
+
   </div>
 
 </section>

@@ -28,7 +28,7 @@
 ?>
 
 <?php
-  global $gview;
+  //global $gview;
 
   $ap['rom'] = $a_rom.'-roms';
   $ap['garasje'] = (get_post_meta( $post->ID, '_meta_garasje', true )!='no')?'Ja':'-';
@@ -38,21 +38,21 @@
   $ap['bod'] = get_post_meta( $post->ID, '_meta_bod', true ).' m<sup>2</sup>';
   $ap['pris'] = number_format(get_post_meta( $post->ID, '_meta_pris', true ), 0, ',', ' ').',-';
   $ap['state'] = get_post_meta( $post->ID, '_meta_state', true );
-  $ap['svgdata1'] = get_post_meta( $post->ID, '_meta_svgdata1', true );
-  $ap['svgdata2'] = get_post_meta( $post->ID, '_meta_svgdata1', true );
+  $ap['svgdata'] = get_post_meta( $post->ID, '_meta_svgdata', true );
+  // $ap['svgdata2'] = get_post_meta( $post->ID, '_meta_svgdata1', true );
   
-  switch ($gview) {
-    case 1:
-      $ap['svgdata'] = get_post_meta( $post->ID, '_meta_svgdata1', true );
-      break;
-    case 2:
-      $ap['svgdata'] = get_post_meta( $post->ID, '_meta_svgdata2', true );
-      break;
+  // switch ($gview) {
+  //   case 1:
+  //     $ap['svgdata'] = get_post_meta( $post->ID, '_meta_svgdata1', true );
+  //     break;
+  //   case 2:
+  //     $ap['svgdata'] = get_post_meta( $post->ID, '_meta_svgdata2', true );
+  //     break;
     
-    default:
-      $ap['svgdata'] = get_post_meta( $post->ID, '_meta_svgdata1', true );
-      break;
-  }
+  //   default:
+  //     $ap['svgdata'] = get_post_meta( $post->ID, '_meta_svgdata1', true );
+  //     break;
+  // }
 
 
 
@@ -69,8 +69,6 @@
   data-pris="<?= $ap['pris']; ?>"
   data-state="<?= $ap['state']; ?>"
   data-svgdata="<?= $ap['svgdata']; ?>"
-  data-svgdata1="<?= $ap['svgdata1']; ?>"
-  data-svgdata2="<?= $ap['svgdata2']; ?>"
   data-url="<?php the_permalink(); ?>"
   >
     <span class="datarow--cell"><?php the_title(); ?></span>
@@ -78,7 +76,7 @@
     <span class="datarow--cell"><?= $ap['floor']; ?></span>
     <span class="datarow--cell"><?= $ap['bra']; ?></span>
     <span class="datarow--cell"><?= $ap['garasje']; ?></span>
-    <?php if ( $ap['state'] == 'fri' ) : ?>
+    <?php if ( $ap['state'] === 'fri' ) : ?>
       <span class="datarow--cell"><i class="<?= $ap['state'] ?>"></i><?= $ap['pris'] ; ?></span>
     <?php else : ?>
       <span class="datarow--cell"><i class="<?= $ap['state'] ?>"></i><?= $ap['state'] ?></span>
