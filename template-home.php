@@ -9,19 +9,14 @@
 <?php while (have_posts()) : the_post(); ?>
 <!-- About Section -->
 <section class="page-section" id="about">
-  <div class="container relative">
-    <h2 class="section-title font-alt align-center mb-70 mb-sm-40">Beskrivelse</h2>
-    <div class="section-text mb-50 mb-sm-20">
-      <div class="row">
+	<div class="container relative">
+		<h2 class="section-title font-alt align-center mb-70 mb-sm-40">Beskrivelse</h2>
+		<div class="section-text mb-50 mb-sm-20">
+		  <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <div class="lead">
             <p> Nytt flott boligprosjekt med flott beliggenhet i naturskjønt område. Prosjektet er bestående av velproporsjonerte enheter med fine uteområder/terrasser. 48 boliger fordelt på 3 bygg, alle med garasjeplass. </p>
-
-<p>
-Alle leilighetene er gjennomgående og har usjenerte og skjermede terrasser med utsikt.
-Byggene  har garasjekjeller og 5 plan med boliger. De 3 nederste etasjene har lik planløsning fordelt på 4 leiligheter i hver etasje.
-I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.
-</p>
+            <p>Alle leilighetene er gjennomgående og har usjenerte og skjermede terrasser med utsikt. Byggene  har garasjekjeller og 5 plan med boliger. De 3 nederste etasjene har lik planløsning fordelt på 4 leiligheter i hver etasje. I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.</p>
           </div>
         </div>
 
@@ -32,8 +27,8 @@ I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.
           </div>
         </div>
 
-      </div>
-   </div>
+		  </div>
+	 </div>
   </div>
 </section>
 
@@ -41,7 +36,7 @@ I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.
 <section class="small-section bg-gray pt-30 pb-30">
   <div class="relative container">
 
-    <div class="row">            
+    <div class="row">
       <div class="col-md-10 col-md-offset-1">
           <h1 class="hs-line-8 font-alt mb-0 align-center">Finn din Bolig</h1>
           <div class="hs-line-4 font-alt align-center black">Dra musepekeren over bygget for å velge leilighet</div>
@@ -53,27 +48,27 @@ I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.
 
 <section class="home__choserblock" id="finndinbolig">
   <div class="thechooser">
-    
+
 
         <div id="visualchooser" class="visualchooser visualchooser-starter" data-width="1921" data-height="1401">
-          <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser_update_normal-01.jpg" alt="">
+          <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser_update_hover-01.jpg" alt="">
         </div>
 
 
-    <?php 
+    <?php
       $byggs_args = array(
         'hide_empty' => false,
-        'parent' => 0  
+        'parent' => 0
       );
       $the_bygs = get_terms('building', $byggs_args );
     ?>
 
 
     <div id="detailswrapper" class="container">
-      
+
         <?php foreach ($the_bygs as $bygg) { ?>
-        
-        <?php 
+
+        <?php
 
 
             $bq = new WP_Query( array(
@@ -113,12 +108,11 @@ I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.
             ));
 
           ?>
-          
           <?php if ($the_ap->found_posts > 0) : ?>
             <section class="small-section pt-30 pb-30">
               <div class="relative container">
 
-                <div class="row">            
+                <div class="row">
                   <div class="col-md-10 col-md-offset-1">
                       <h1 class="hs-line-8 font-alt mb-0 align-center"><?= $bygg->name ?></h1>
                       <div class="hs-line-4 font-alt align-center black">
@@ -140,6 +134,7 @@ I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.
                     <span class="datarow--cell">Garasje</span>
                     <span class="datarow--cell">Pris / Status</span>
                   </p>
+
                   <?php while ($the_ap->have_posts()) : $the_ap->the_post(); ?>
                     <?php get_template_part('templates/apartment','datarow'); ?>
                   <?php endwhile; ?>
@@ -147,6 +142,7 @@ I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.
             </div>
           </div>
         <?php endif; ?>
+
 
        <?php } ?>
     </div>
@@ -160,7 +156,7 @@ I 4.etasje er det 3 leiligheter og på toppen ligger det en toppleilighet.
 <section class="page-section" id="beliggenhet">
   <div class="container relative">
     <h2 class="section-title font-alt align-center mb-70 mb-sm-40">Beliggenhet</h2>
-    <div class="section-text mb-50 mb-sm-20">   
+    <div class="section-text mb-50 mb-sm-20">
       <div class="row">
         <div class="col-md-5 col-md-offset-1">
           <p>Prosjektet i Hamrestølen er bestående av 3 bolighus med tilsammen 48 leiligheter. Det er 16 leiligheter i hvert bolighus hvorav en av leilighetene er beliggende for seg selv på toppen av hvert bygg.
@@ -179,7 +175,7 @@ Prosjektet ligger i naturskjønne omgivelser med mye sol, og med fantastisk utsi
         </div>
       </div>
 
-    </div>      
+    </div>
   </div>
 </section>
 
