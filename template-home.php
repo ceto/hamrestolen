@@ -50,8 +50,8 @@
   <div class="thechooser">
 
 
-        <div id="visualchooser" class="visualchooser visualchooser-starter" data-width="1921" data-height="1401">
-          <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser_update_hover-01.jpg" alt="">
+        <div id="visualchooser" class="visualchooser visualchooser-starter" data-width="2600" data-height="1569">
+          <img src="<?= get_stylesheet_directory_uri(); ?>/dist/images/chooser_new.jpg" alt="">
         </div>
 
 
